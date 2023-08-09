@@ -59,6 +59,18 @@
       },
     }
 
+    const ball = {
+      x: 300,
+      y: 200,
+      r: 20,
+      draw: function () {
+        canvasCtx.fillStyle = "#ffffff"
+        canvasCtx.beginPath()
+        canvasCtx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
+        canvasCtx.fill()
+      },
+    }
+
     function setup() {
       canvasEl.width = canvasCtx.width = field.w
       canvasEl.height = canvasCtx.height = field.h
@@ -67,13 +79,11 @@
     function draw() {
       field.draw()
       line.draw()
+
       leftPaddle.draw()
       rightPaddle.draw()
 
-      // desenha a bolinha
-      canvasCtx.beginPath()
-      canvasCtx.arc(500, 300, 20, 0, 2 * Math.PI, false)
-      canvasCtx.fill()
+      ball.draw()
 
       // desenha o placar
       canvasCtx.font = "bold 72px Arial"
